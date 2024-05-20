@@ -16,8 +16,13 @@ void memcpy_s(void *dest, size_t destsz, const void *src, size_t srcsz, size_t c
     (void) memcpy(dest, src, copysz);
 }
 
-void memset_s(void *dest, int val, size_t destsz) {
+void memfill(uint8_t *dest, int val, size_t destsz) {
     if (dest == NULL) {
+        assert(0);
+        return;
+    }
+
+    if (val < 0 || val > UINT8_MAX) {
         assert(0);
         return;
     }
