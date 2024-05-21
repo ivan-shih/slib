@@ -13,5 +13,6 @@ void printf_ss(const char* fmt, va_list arp);
 void strncpy_s(char* dest, size_t destsz, const char* src, size_t srcsz, size_t copysz);
 void strcpy_s(char* dest, size_t destsz, const char* src, size_t srcsz);
 void strncat_s(char* dest, size_t destsz, const char* src, size_t srcsz);
+int findFirstNot(const uint8_t* data, int len, int targetValue);
 
 #endif

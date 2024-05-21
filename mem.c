@@ -168,3 +168,18 @@ void strncat_s(char* dest, size_t destsz, const char* src, size_t srcsz) {
 
     (void) strcat(dest, src);
 }
+
+int findFirstNot(const uint8_t* data, int len, int targetValue) {
+    if (!data) {
+        assert(0);
+        return -1;
+    }
+
+    for (int i = 0; i < len; i++) {
+        if (data[i] != targetValue) {
+            return i;
+        }
+    }
+
+    return -1;
+}
