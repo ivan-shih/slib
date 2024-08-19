@@ -161,12 +161,12 @@ void strncat_s(char* dest, size_t destsz, const char* src, size_t srcsz) {
 
     size_t remaining = destsz - strnlen(dest, destsz);
 
-    if (remaining <= srcsz) {
+    if (remaining <= strnlen(src, srcsz)) {
         assert(0);
         return;
     }
 
-    (void) strcat(dest, src);
+    (void) strncat(dest, src, srcsz);
 }
 
 int findFirstNot(const uint8_t* data, int len, int targetValue) {
