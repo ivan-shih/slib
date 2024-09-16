@@ -1,7 +1,7 @@
 #include "./mem.h"
 #include <string.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <assert.h>
 
 #define IsUpper(c)	(((c)>='A')&&((c)<='Z'))
 #define IsLower(c)	(((c)>='a')&&((c)<='z'))
@@ -9,7 +9,7 @@
 
 void memcpy_s(void *dest, size_t destsz, const void *src, size_t srcsz, size_t copysz) {
     if (dest == src || dest == NULL || src == NULL || destsz < copysz || srcsz < copysz) {
-        abort();
+        assert(0);
     }
 
     (void) memcpy(dest, src, copysz);
@@ -17,11 +17,11 @@ void memcpy_s(void *dest, size_t destsz, const void *src, size_t srcsz, size_t c
 
 void memfill(uint8_t *dest, int val, size_t destsz) {
     if (dest == NULL) {
-        abort();
+        assert(0);
     }
 
     if (val < 0 || val > UINT8_MAX) {
-        abort();
+        assert(0);
     }
 
     (void) memset(dest, val, destsz);
@@ -29,7 +29,7 @@ void memfill(uint8_t *dest, int val, size_t destsz) {
 
 bool memcmp_s(const void* s1, size_t sz1, const void* s2, size_t sz2, size_t compsz) {
     if (s1 == NULL || s2 == NULL || s1 == s2 || sz1 < compsz || sz2 < compsz) {
-        abort();
+        assert(0);
     }
 
     for (size_t i = 0; i < compsz; i++) {
@@ -126,7 +126,7 @@ void printf_ss(const char* fmt, va_list arp) {
 
 void strncpy_s(char* dest, size_t destsz, const char* src, size_t srcsz, size_t copysz) {
     if (dest == NULL || src == NULL || dest == src || destsz < copysz || srcsz < copysz) {
-        abort();
+        assert(0);
     }
 
     (void) strncpy(dest, src, copysz);
@@ -134,13 +134,13 @@ void strncpy_s(char* dest, size_t destsz, const char* src, size_t srcsz, size_t 
 
 void strcpy_s(char* dest, size_t destsz, const char* src, size_t srcsz) {
     if (dest == NULL || src == NULL || dest == src) {
-        abort();
+        assert(0);
     }
 
     size_t n = strnlen(src, srcsz);
 
     if (n >= destsz) {
-        abort();
+        assert(0);
     }
 
     (void) strcpy(dest, src);
@@ -148,13 +148,13 @@ void strcpy_s(char* dest, size_t destsz, const char* src, size_t srcsz) {
 
 void strncat_s(char* dest, size_t destsz, const char* src, size_t srcsz) {
     if (dest == NULL || src == NULL || dest == src || destsz < srcsz) {
-        abort();
+        assert(0);
     }
 
     size_t remaining = destsz - strnlen(dest, destsz);
 
     if (remaining <= strnlen(src, srcsz)) {
-        abort();
+        assert(0);
     }
 
     (void) strncat(dest, src, srcsz);
@@ -162,7 +162,7 @@ void strncat_s(char* dest, size_t destsz, const char* src, size_t srcsz) {
 
 int findFirstNot(const uint8_t* data, int len, int targetValue) {
     if (!data) {
-        abort();
+        assert(0);
     }
 
     for (int i = 0; i < len; i++) {

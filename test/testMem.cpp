@@ -123,8 +123,7 @@ TEST(StrncpySTest, InsufficientDestinationSize) {
 TEST(StrncpySTest, InsufficientSourceSize) {
     char src[] = "Short";
     char dest[10];
-    strncpy_s(dest, sizeof(dest), src, 3, 4);
-    EXPECT_STREQ(dest, "Sho");
+    EXPECT_DEATH(strncpy_s(dest, sizeof(dest), src, 3, 4), "");
 }
 
 TEST(StrcpySTest, BasicCopy) {
