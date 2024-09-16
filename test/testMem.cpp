@@ -176,9 +176,15 @@ TEST(StrncatSTest, OverlappingMemory) {
     EXPECT_DEATH(strncat_s(data, 7, data + 2, 5), "");
 }
 
-TEST(StrncatSTest, InsufficientDestinationSize) {
+TEST(StrncatSTest, InsufficientDestinationSize1) {
     char dest[10] = "Too long ";
     char src[] = "already";
+    EXPECT_DEATH(strncat_s(dest, sizeof(dest), src, sizeof(src)), "");
+}
+
+TEST(StrncatSTest, InsufficientDestinationSize2) {
+    char dest[] = "123456789";
+    char src[] = "123456789";
     EXPECT_DEATH(strncat_s(dest, sizeof(dest), src, sizeof(src)), "");
 }
 
