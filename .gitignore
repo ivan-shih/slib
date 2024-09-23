@@ -1,0 +1,8 @@
+# cmake build folder
+build/
+
+# ccls symbol database
+compile_commands.json
+
+#clang sumbol database
+.cache

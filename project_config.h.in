@@ -1,0 +1,4 @@
+#define VERSION_MAJOR @YourProjectName_VERSION_MAJOR@
+#define VERSION_MINOR @YourProjectName_VERSION_MINOR@
+#define VERSION_PATCH @YourProjectName_VERSION_PATCH@
+#define VERSION_TWEAK @YourProjectName_VERSION_TWEAK@
