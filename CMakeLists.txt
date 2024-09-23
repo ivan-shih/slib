@@ -12,9 +12,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ######## the main source files of this project ########
-add_subdirectory(src)
-
 enable_testing()
+
+add_subdirectory(src)
 add_subdirectory(test)
 
 add_test(NAME unit_test COMMAND test/main)

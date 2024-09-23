@@ -6,7 +6,7 @@ target_include_directories(object_lib PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 )
 
-if (BUILD_TESTS)
+if(DEFINED CMAKE_TESTING_ENABLED)
     target_compile_options(object_lib PRIVATE
         -g -fsanitize=address -finput-charset=UTF-8 -MMD -MP
     )
